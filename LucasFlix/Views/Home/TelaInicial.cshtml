@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "LucasFlix";
+}
+@model Filme
+
+<h1>Bem-Vindo ao LucasFlix</h1>
+
+<h3>Veja alguns Filmes e Séries já cadastrados</h3>
+
+<h4>==== Filmes ====</h4>
+
+
+@*@try
+{
+    var teste = Model.Id;
+
+    @foreach (var item in Model.NomeDoFilme)
+    {
+        <div>
+            <p>Nome do Filme: @(Model.NomeDoFilme)</p>
+            <p>Filme nº @(Model.Id) cadastrado</p>
+            <p>Genero do Filme: @(Model.Genero.GeneroDoFilme)</p>
+            <p>Classificação Inficativa do Filme: @(Model.Classificacao.ClassificacaoDoFilme)</p>
+            <p>Nome do Ator que está no Filme: @(Model.Ator.NomeDoAtor)</p>
+            <p>Nome do Diretor do Filme:  @(Model.Diretor.NomeDoDiretor)</p>
+        </div>
+        <br />
+    }
+}
+catch (Exception ex)
+{
+    throw;
+}*@
+
+
+
+<p>Não há filmes cadastrados no momento.</p>
+
+
+
+
+<h4>==== Séries ====</h4>
+

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Cadastro Filme";
+}
+
+@model Filme
+
+
+    <br />
+
+    <form asp-action="_CadastroFilme" method="post">
+        <div class="form-group">
+            <label>Filme</label>
+            <input type="text" class="form-control" placeholder="Nome do Filme">
+        </div>
+
+        <div>
+            <div class="form-group">
+                <label>Ator</label>
+                <input type="text" class="form-control" placeholder="Nome do Ator">
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group">
+                <label>Diretor</label>
+                <input type="text" class="form-control" placeholder="Nome do Diretor">
+            </div>
+        </div>
+
+        <div>
+            <label>Classificação Indicativa</label>
+            <select class="form-control">
+
+                <option>Classificação Indicativa do Filme</option>
+
+                @foreach (var item in ViewBag.Classificacao.Items)
+                {
+                    <option value="@item.Id"> @item.ClassificacaoDoFilme </option>
+                }
+            </select>
+        </div>
+
+        <br />
+
+        <div>
+            <label>Genero do Filme</label>
+            <select class="form-control">
+                <option>Selecione o genero do filme</option>
+
+                @foreach (var item in ViewBag.Genero.Items)
+                {
+                    <option value="@item.Id"> @item.GeneroDoFilme </option>
+                }
+            </select>
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
