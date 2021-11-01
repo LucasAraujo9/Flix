@@ -1,60 +1,61 @@
 ﻿@{
-    ViewData["Title"] = "Cadastro Série";
+    ViewData["Title"] = "Cadastro Serie";
 }
 
 @model Serie
 
+<br />
+<h1>CADASTRAR SÉRIE</h1>
+<br />
+
+<form asp-action="_CadastroSerie" method="post">
+
+    <div class="input-group mb-2">
+        <div class="input-group-text"><label>Série</label></div>
+        <input type="text" class="form-control" placeholder="Nome Serie" asp-for="@Model.NomeDaSerie">
+        <span asp-validation-for="@Model.NomeDaSerie"></span>
+    </div>
+    <br />
+    <div class="input-group mb-2">
+        <div class="input-group-text"><label>Ator</label></div>
+        <input type="text" class="form-control" placeholder="Nome Ator" asp-for="@Model.Ator.NomeDoAtor">
+        <span asp-validation-for="@Model.Ator.NomeDoAtor"></span>
+    </div>
+    <br />
+    <div class="input-group mb-2">
+        <div class="input-group-text"><label>Diretor</label></div>
+        <input type="text" class="form-control" placeholder="Nome Diretor" asp-for="@Model.Diretor.NomeDoDiretor">
+        <span asp-validation-for="@Model.Diretor.NomeDoDiretor"></span>
+    </div>
+    <br />
+    <div>
+        <label>Classificação Indicativa</label>
+        <select class="form-control" asp-for="@Model.ClassificacaoIndicativa">
+
+            <option>Classificação Indicativa do Filme</option>
+
+            @foreach (var item in ViewBag.Classificacao.Items)
+            {
+                <option value="@item.ClassificacaoDoFilme"> @item.ClassificacaoDoFilme </option>
+            }
+        </select>
+    </div>
 
     <br />
 
-    <form asp-action="_CadastroSerie" method="post">
-        <div class="form-group">
-            <label>Série</label>
-            <input type="text" class="form-control" placeholder="Nome da Série">
-        </div>
+    <div>
+        <label>Genero do Filme</label>
+        <select class="form-control" asp-for="@Model.GeneroFilme">
+            <option>Selecione o genero do filme</option>
 
-        <div>
-            <div class="form-group">
-                <label>Ator</label>
-                <input type="text" class="form-control" placeholder="Nome do Ator">
-            </div>
-        </div>
+            @foreach (var item in ViewBag.Genero.Items)
+            {
+                <option value="@item.GeneroDoFilme"> @item.GeneroDoFilme </option>
+            }
+        </select>
+    </div>
 
-        <div>
-            <div class="form-group">
-                <label>Diretor</label>
-                <input type="text" class="form-control" placeholder="Nome do Diretor">
-            </div>
-        </div>
+    <br />
 
-        <div>
-            <label>Classificação Indicativa</label>
-            <select class="form-control">
-
-                <option>Classificação Indicativa da Série</option>
-
-                @foreach (var item in ViewBag.Classificacao.Items)
-                {
-                    <option value="@item.Id"> @item.ClassificacaoDoFilme </option>
-                }
-            </select>
-        </div>
-
-        <br />
-
-        <div>
-            <label>Genero da Série</label>
-            <select class="form-control">
-                <option>Selecione o genero da Série</option>
-
-                @foreach (var item in ViewBag.Genero.Items)
-                {
-                    <option value="@item.Id"> @item.GeneroDoFilme </option>
-                }
-            </select>
-        </div>
-
-        <br />
-
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

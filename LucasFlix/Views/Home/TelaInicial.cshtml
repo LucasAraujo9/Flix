@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "LucasFlix";
 }
-@model Filme
+@model FilmeSerie
 
 <h1>Bem-Vindo ao LucasFlix</h1>
 
@@ -9,35 +9,57 @@
 
 <h4>==== Filmes ====</h4>
 
-
 @*@try
 {
-    var teste = Model.Id;
-
-    @foreach (var item in Model.NomeDoFilme)
+    @foreach (var item in Model._Filme.NomeDoFilme)
     {
         <div>
-            <p>Nome do Filme: @(Model.NomeDoFilme)</p>
-            <p>Filme nº @(Model.Id) cadastrado</p>
-            <p>Genero do Filme: @(Model.Genero.GeneroDoFilme)</p>
-            <p>Classificação Inficativa do Filme: @(Model.Classificacao.ClassificacaoDoFilme)</p>
-            <p>Nome do Ator que está no Filme: @(Model.Ator.NomeDoAtor)</p>
-            <p>Nome do Diretor do Filme:  @(Model.Diretor.NomeDoDiretor)</p>
+            <p>Nome do Filme: @(Model._Filme.NomeDoFilme)</p>
+            <p>Filme nº @(Model._Filme.Id) cadastrado</p>
+            <p>Genero do Filme: @(Model._Filme.Genero.GeneroDoFilme)</p>
+            <p>Classificação Inficativa do Filme: @(Model._Filme.Classificacao.ClassificacaoDoFilme)</p>
+            <p>Nome do Ator que está no Filme: @(Model._Filme.Ator.NomeDoAtor)</p>
+            <p>Nome do Diretor do Filme:  @(Model._Filme.Diretor.NomeDoDiretor)</p>
         </div>
         <br />
     }
 }
-catch (Exception ex)
+catch (Exception)
 {
-    throw;
+    <p>Não há filmes cadastrados no momento.</p>
 }*@
-
-
 
 <p>Não há filmes cadastrados no momento.</p>
 
 
-
+<br />
+<hr />
+<br />
 
 <h4>==== Séries ====</h4>
+
+@*@try
+{
+    @foreach (var item in Model._Filme.NomeDoFilme)
+    {
+        <div>
+            <p>Nome do Filme: @(Model._Serie.NomeDaSerie)</p>
+            <p>Filme nº @(Model._Serie.Id) cadastrado</p>
+            <p>Genero do Filme: @(Model._Serie.Genero.GeneroDoFilme)</p>
+            <p>Classificação Inficativa do Filme: @(Model._Serie.Classificacao.ClassificacaoDoFilme)</p>
+            <p>Nome do Ator que está no Filme: @(Model._Serie.Ator.NomeDoAtor)</p>
+            <p>Nome do Diretor do Filme:  @(Model._Serie.Diretor.NomeDoDiretor)</p>
+        </div>
+        <br />
+    }
+}
+catch (Exception)
+{
+    <p>Não há série cadastrados no momento.</p>
+}*@
+
+<p>Não há série cadastrados no momento.</p>
+
+
+
 

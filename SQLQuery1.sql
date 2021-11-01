@@ -1,6 +1,6 @@
 ﻿select * from Classificacao
 
-insert into Classificacao values ('0')
+insert into Classificacao values ('Livre')
 insert into Classificacao values ('10')
 insert into Classificacao values ('12') 
 insert into Classificacao values ('14') 

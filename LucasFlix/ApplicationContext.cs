@@ -23,30 +23,25 @@ namespace LucasFlix
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // FILMES
+            // FILME
             modelBuilder.Entity<Filme>().HasKey(t => t.Id);
-            // SERIES
+            // SERIE
             modelBuilder.Entity<Serie>().HasKey(t => t.Id);
 
             // CHAVES PRIMARIAS
             modelBuilder.Entity<Ator>().HasKey(t => t.Id);
-            modelBuilder.Entity<Classificacao>().HasKey(t => t.Id);
             modelBuilder.Entity<Diretor>().HasKey(t => t.Id);
-            modelBuilder.Entity<Genero>().HasKey(t => t.Id);
-
+            
+            // TESTANDO
+            modelBuilder.Entity<Classificacao>();
+            modelBuilder.Entity<Genero>();
 
             // RELAÇÕES 
             modelBuilder.Entity<Filme>().HasOne(t => t.Ator).WithMany(t => t.Filmes);
             modelBuilder.Entity<Serie>().HasOne(t => t.Ator).WithMany(t => t.Series);
 
-            modelBuilder.Entity<Filme>().HasOne(t => t.Classificacao).WithMany(t => t.Filmes);
-            modelBuilder.Entity<Serie>().HasOne(t => t.Classificacao).WithMany(t => t.Series);
-
             modelBuilder.Entity<Filme>().HasOne(t => t.Diretor).WithMany(t => t.Filmes);
-            modelBuilder.Entity<Serie>().HasOne(t => t.Diretor).WithMany(t => t.Series);
-                
-            modelBuilder.Entity<Filme>().HasOne(t => t.Genero).WithMany(t => t.Filmes);
-            modelBuilder.Entity<Serie>().HasOne(t => t.Genero).WithMany(t => t.Series);
+            modelBuilder.Entity<Serie>().HasOne(t => t.Diretor).WithMany(t => t.Series);            
         }
 
     }

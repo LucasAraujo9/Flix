@@ -6,7 +6,7 @@ namespace LucasFlix.Models
 {
     public class Classificacao : Identity
     {        
-        public int ClassificacaoDoFilme { get; set; }
+        public string ClassificacaoDoFilme { get; set; }
 
         [NotMapped]
         public string _ClassificacaoDoFilme { get; set; }

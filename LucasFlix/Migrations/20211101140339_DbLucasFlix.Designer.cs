@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LucasFlix.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211031201028_LucasFlixDb")]
-    partial class LucasFlixDb
+    [Migration("20211101140339_DbLucasFlix")]
+    partial class DbLucasFlix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,7 @@ namespace LucasFlix.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClassificacaoDoFilme");
+                    b.Property<string>("ClassificacaoDoFilme");
 
                     b.HasKey("Id");
 
@@ -70,7 +70,11 @@ namespace LucasFlix.Migrations
 
                     b.Property<int?>("ClassificacaoId");
 
+                    b.Property<string>("ClassificacaoIndicativa");
+
                     b.Property<int?>("DiretorId");
+
+                    b.Property<string>("GeneroFilme");
 
                     b.Property<int?>("GeneroId");
 
@@ -112,7 +116,11 @@ namespace LucasFlix.Migrations
 
                     b.Property<int?>("ClassificacaoId");
 
+                    b.Property<string>("ClassificacaoIndicativa");
+
                     b.Property<int?>("DiretorId");
+
+                    b.Property<string>("GeneroFilme");
 
                     b.Property<int?>("GeneroId");
 

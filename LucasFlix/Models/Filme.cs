@@ -9,9 +9,12 @@ namespace LucasFlix.Models
     public class Filme : Identity
     {
         public string NomeDoFilme { get; set; }
-        public Classificacao Classificacao { get; set; }
-        public Genero Genero { get; set; }
         public Ator Ator { get; set; }
         public Diretor Diretor { get; set; }
+        public string ClassificacaoIndicativa { get; set; }
+        public string GeneroFilme { get; set; }
+        //=======================================================
+        public Classificacao Classificacao { get; set; }
+        public Genero Genero { get; set; }
     }
 }

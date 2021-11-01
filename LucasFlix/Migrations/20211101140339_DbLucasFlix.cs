@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LucasFlix.Migrations
 {
-    public partial class LucasFlixDb : Migration
+    public partial class DbLucasFlix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -26,7 +26,7 @@ namespace LucasFlix.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    ClassificacaoDoFilme = table.Column<int>(nullable: false)
+                    ClassificacaoDoFilme = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -66,10 +66,12 @@ namespace LucasFlix.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NomeDoFilme = table.Column<string>(nullable: true),
-                    ClassificacaoId = table.Column<int>(nullable: true),
-                    GeneroId = table.Column<int>(nullable: true),
                     AtorId = table.Column<int>(nullable: true),
-                    DiretorId = table.Column<int>(nullable: true)
+                    DiretorId = table.Column<int>(nullable: true),
+                    ClassificacaoIndicativa = table.Column<string>(nullable: true),
+                    GeneroFilme = table.Column<string>(nullable: true),
+                    ClassificacaoId = table.Column<int>(nullable: true),
+                    GeneroId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -108,9 +110,11 @@ namespace LucasFlix.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NomeDaSerie = table.Column<string>(nullable: true),
                     AtorId = table.Column<int>(nullable: true),
+                    DiretorId = table.Column<int>(nullable: true),
+                    ClassificacaoIndicativa = table.Column<string>(nullable: true),
+                    GeneroFilme = table.Column<string>(nullable: true),
                     ClassificacaoId = table.Column<int>(nullable: true),
-                    GeneroId = table.Column<int>(nullable: true),
-                    DiretorId = table.Column<int>(nullable: true)
+                    GeneroId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

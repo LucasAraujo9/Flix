@@ -33,7 +33,7 @@ namespace LucasFlix.Controllers
             ViewBag.Diretor = new SelectList(_contexto.Diretor.ToList(), "Id", "Diretor");
             ViewBag.Classificacao = new SelectList(_contexto.Classificacao.ToList(), "Id", "ClassificacaoDoFilme");
 
-            return View();
+            return View("CadastroFilme");
         }
 
         
